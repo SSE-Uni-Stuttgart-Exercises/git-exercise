@@ -20,6 +20,12 @@ class Point2D:
         # and reassigns the internal _coordinates attribute.
         self._coordinates = self._coordinates + other
         return self
+    
+    def __isub__(self, other: Vector) -> "Point2D":
+        # Use the Vector's __sub__ method to perform subtraction,
+        # then update the internal _coordinates attribute.
+        self._coordinates = self._coordinates - other
+        return self
 
 
 def test_point_construction() -> None:
@@ -42,3 +48,4 @@ def test_point_vector_subtraction() -> None:
     point -= Vector([1.1, 2.2])
     assert isclose(point.x, -0.1)
     assert isclose(point.y, -0.2)
+
