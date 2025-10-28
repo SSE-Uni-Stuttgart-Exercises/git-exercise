@@ -14,9 +14,13 @@ class Point2D:
     def y(self) -> float:
         return self._coordinates[1]
 
-    #def __iadd__(self, other: Vector) -> None:
-    #    self._coordinates += other
-    #    return self
+    # Task A Solution: Implement In-Place Addition
+    def __iadd__(self, other: Vector) -> "Point2D":
+        # This line uses the Vector's __add__ method (which returns a new Vector) 
+        # and reassigns the internal _coordinates attribute.
+        self._coordinates = self._coordinates + other
+        return self
+
 
 def test_point_construction() -> None:
     point = Point2D(1.0, 42.0)
